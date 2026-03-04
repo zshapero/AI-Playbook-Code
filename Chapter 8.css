@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: Data Quality as the Force Multiplier Across the AI Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Open Sans', sans-serif;
+            background: #ffffff;
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            width: 2050px;
+            font-size: 24px;
+        }
+
+        .page-wrapper {
+            display: flex;
+            width: 2050px;
+            align-items: stretch;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            max-width: 1700px;
+            padding: 60px 100px;
+        }
+
+        /* Logo */
+        .logo-container {
+            margin-bottom: 32px;
+        }
+
+        .logo-placeholder {
+            width: 180px;
+            height: 50px;
+            background: linear-gradient(135deg, #0B38DB 0%, #19374f 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Chapter Header */
+        .pillar-label {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #FF7600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .chapter-label {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            background: #0B38DB;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 14px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #0B38DB;
+            margin-bottom: 28px;
+            line-height: 1.3;
+        }
+
+        .intro-text {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .chapter-description {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 0;
+            padding-bottom: 36px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        /* Intro Image Placeholder */
+        .intro-image-placeholder {
+            float: right;
+            width: 340px;
+            height: 340px;
+            margin: 160px 0 -40px 30px;
+            border-radius: 12px;
+            border: 2px dashed #0B38DB;
+            background: #f8f9ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro-image-placeholder span {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #0B38DB;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.6;
+        }
+
+        .header-section {
+            overflow: visible;
+            margin-bottom: 48px;
+        }
+
+        /* Section Headings */
+        h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: #0B38DB;
+            margin-top: 56px;
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 30px;
+            font-weight: 600;
+            color: #FF7600;
+            margin-top: 36px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        /* Learning Objectives Box */
+        .learning-box {
+            background: #f8f9ff;
+            border-left: 4px solid #0B38DB;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .learning-box h3 {
+            color: #0B38DB;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .learning-box ul {
+            margin: 0;
+            padding-left: 24px;
+        }
+
+        .learning-box li {
+            margin-bottom: 12px;
+            color: #444;
+            font-size: 24px;
+        }
+
+        /* Definition Box */
+        .definition-box {
+            background: #fafafa;
+            border: 1px solid #e8e8e8;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 8px;
+        }
+
+        .definition-box p {
+            margin-bottom: 16px;
+        }
+
+        .definition-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Callout Box */
+        .callout-box {
+            background: #f8f9ff;
+            border-left: 4px solid #FF7600;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout-box p {
+            margin-bottom: 0;
+            color: #444;
+        }
+
+        .callout-box strong {
+            color: #0B38DB;
+        }
+
+        /* Important Box */
+        .important-box {
+            background: #fff3e8;
+            border-left: 4px solid #FF7600;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .important-box p {
+            margin-bottom: 0;
+            color: #444;
+        }
+
+        .important-box strong {
+            color: #FF7600;
+        }
+
+        /* Tip Box */
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tip-box p {
+            margin-bottom: 0;
+            color: #444;
+        }
+
+        .tip-box strong {
+            color: #27ae60;
+        }
+
+        /* Phase Journey Cards */
+        .phase-journey {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 36px 0;
+        }
+
+        .phase-card {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .phase-card:hover {
+            box-shadow: 0 4px 16px rgba(11, 56, 219, 0.08);
+            border-color: #0B38DB;
+        }
+
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .phase-card:nth-child(1)::before { background: linear-gradient(90deg, #0B38DB 0%, #3366ff 100%); }
+        .phase-card:nth-child(2)::before { background: linear-gradient(90deg, #FF7600 0%, #ffaa44 100%); }
+        .phase-card:nth-child(3)::before { background: linear-gradient(90deg, #27ae60 0%, #4ddb8a 100%); }
+        .phase-card:nth-child(4)::before { background: linear-gradient(90deg, #8e44ad 0%, #bb6bd9 100%); }
+
+        .phase-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .phase-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Merriweather', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .phase-card:nth-child(1) .phase-number { background: #0B38DB; }
+        .phase-card:nth-child(2) .phase-number { background: #FF7600; }
+        .phase-card:nth-child(3) .phase-number { background: #27ae60; }
+        .phase-card:nth-child(4) .phase-number { background: #8e44ad; }
+
+        .phase-card-title {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .phase-card p {
+            font-size: 22px;
+            color: #555;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+        .phase-card-image {
+            width: 100%;
+            height: 160px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .phase-card-image svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .phase-card .data-badge {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-top: 14px;
+        }
+
+        .phase-card:nth-child(1) .data-badge { background: #e8f0fe; color: #0B38DB; }
+        .phase-card:nth-child(2) .data-badge { background: #fff3e8; color: #FF7600; }
+        .phase-card:nth-child(3) .data-badge { background: #e8f5e9; color: #27ae60; }
+        .phase-card:nth-child(4) .data-badge { background: #f3e8f5; color: #8e44ad; }
+
+        /* Trust Self-Reflection */
+        .trust-reflection {
+            background: #fff;
+            border: 2px solid #0B38DB;
+            border-radius: 12px;
+            padding: 36px 40px;
+            margin: 36px 0;
+            position: relative;
+        }
+
+        .trust-reflection-header {
+            font-family: 'Merriweather', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #0B38DB;
+            margin-bottom: 8px;
+        }
+
+        .trust-reflection-subhead {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+
+        .trust-question {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 18px 0;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .trust-question:last-child {
+            padding-bottom: 0;
+        }
+
+        .trust-question-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid #FF7600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Merriweather', serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #FF7600;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .trust-question-text {
+            font-size: 23px;
+            color: #333;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .trust-question-context {
+            font-size: 19px;
+            color: #666;
+            line-height: 1.5;
+            margin-top: 6px;
+            font-style: normal;
+        }
+
+        /* Enrichment Framework Cards */
+        .enrichment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 36px 0;
+        }
+
+        .enrichment-card {
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .enrichment-card:hover {
+            box-shadow: 0 4px 18px rgba(255, 118, 0, 0.1);
+            border-color: #FF7600;
+        }
+
+        .enrichment-card-image {
+            width: 100%;
+            height: 150px;
+            background: #fafafa;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .enrichment-card-image svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .enrichment-card-body {
+            padding: 24px 28px;
+        }
+
+        .enrichment-card-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #FF7600;
+            color: #fff;
+            font-family: 'Merriweather', serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 30px;
+            margin-bottom: 12px;
+        }
+
+        .enrichment-card-title {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            color: #0B38DB;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .enrichment-card-body p {
+            margin-bottom: 0;
+            font-size: 21px;
+            color: #555;
+            line-height: 1.65;
+        }
+
+        /* Stakes Escalation Visual */
+        .stakes-visual {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin: 36px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        .stakes-stage {
+            flex: 1;
+            padding: 28px 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .stakes-stage:nth-child(1) {
+            background: #f0f4ff;
+        }
+
+        .stakes-stage:nth-child(2) {
+            background: #fff8f0;
+        }
+
+        .stakes-stage:nth-child(3) {
+            background: #fff0f0;
+        }
+
+        .stakes-stage::after {
+            content: '→';
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            color: #999;
+            z-index: 1;
+        }
+
+        .stakes-stage:last-child::after {
+            display: none;
+        }
+
+        .stakes-label {
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .stakes-stage:nth-child(1) .stakes-label { color: #0B38DB; }
+        .stakes-stage:nth-child(2) .stakes-label { color: #FF7600; }
+        .stakes-stage:nth-child(3) .stakes-label { color: #c0392b; }
+
+        .stakes-title {
+            font-family: 'Merriweather', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .stakes-desc {
+            font-size: 19px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .benefits-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 16px;
+            color: #444;
+            font-size: 24px;
+        }
+
+        .benefits-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #FF7600;
+            font-weight: 600;
+        }
+
+        .benefits-list strong {
+            color: #0B38DB;
+        }
+
+        /* Key Takeaways */
+        .takeaways-box {
+            background: #0B38DB;
+            color: #fff;
+            padding: 28px 32px;
+            margin: 48px 0 32px;
+            border-radius: 8px;
+        }
+
+        .takeaways-box h2 {
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 34px;
+        }
+
+        .takeaways-box p {
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 16px;
+            font-size: 24px;
+            line-height: 1.7;
+        }
+
+        .takeaways-box p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .takeaway-download {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .takeaway-download-btn {
+            background: #fff;
+            color: #0B38DB;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+            text-decoration: none;
+        }
+
+        .takeaway-download-btn:hover {
+            background: #f0f4ff;
+            transform: translateY(-2px);
+        }
+
+        .takeaway-download-text {
+            color: rgba(255,255,255,0.8);
+            font-size: 18px;
+        }
+
+        .download-instructions {
+            color: #ff7e21;
+            font-size: 16px;
+            font-style: italic;
+            width: 100%;
+            margin-left: 0;
+            margin-top: 8px;
+        }
+
+        @media print {
+            .takeaway-download,
+            .resource-sidebar {
+                display: none;
+            }
+            .page-wrapper {
+                width: 100%;
+            }
+            .main-content {
+                max-width: 100%;
+                padding: 20px;
+            }
+        }
+
+        /* Resource Sidebar */
+        .resource-sidebar {
+            width: 350px;
+            background: #f9f9f9;
+            border-left: 1px solid #e0e0e0;
+            padding: 24px 24px;
+            flex-shrink: 0;
+            min-height: 100%;
+        }
+
+        .sidebar-header {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 23px;
+            font-weight: 600;
+            color: #0B38DB;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #FF7600;
+        }
+
+        .resource-section {
+            margin-bottom: 28px;
+        }
+
+        .resource-section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .resource-item {
+            display: block;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 6px;
+            padding: 22px;
+            margin-bottom: 14px;
+            cursor: pointer;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .resource-item:hover {
+            border-color: #0B38DB;
+            box-shadow: 0 2px 8px rgba(11, 56, 219, 0.1);
+        }
+
+        .resource-item-tag {
+            display: inline-block;
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+
+        .resource-item-tag.article {
+            background: #e8f0fe;
+            color: #0B38DB;
+        }
+
+        .resource-item-tag.guide {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .resource-item-tag.insights {
+            background: #fff3e8;
+            color: #FF7600;
+        }
+
+        .resource-item-tag.research {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .resource-item-tag.course {
+            background: #f3e8f5;
+            color: #8e44ad;
+        }
+
+        .resource-item-learn-more {
+            display: block;
+            font-size: 21px;
+            font-weight: 600;
+            color: #0B38DB;
+            margin-top: 12px;
+        }
+
+        .resource-item:hover .resource-item-learn-more {
+            text-decoration: underline;
+        }
+
+        .resource-item-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .resource-item-desc {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Scrollbar Styling for Sidebar */
+        .resource-sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .resource-sidebar::-webkit-scrollbar-track {
+            background: #f0f0f0;
+        }
+
+        .resource-sidebar::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1800px) {
+            body {
+                width: 100%;
+            }
+            .page-wrapper {
+                width: 100%;
+            }
+            .main-content {
+                padding: 40px 60px;
+            }
+            .resource-sidebar {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .page-wrapper {
+                flex-direction: column;
+            }
+            .main-content {
+                max-width: 100%;
+                padding: 32px 24px;
+            }
+            .resource-sidebar {
+                width: 100%;
+                border-left: none;
+                border-top: 1px solid #e0e0e0;
+            }
+            .intro-image-placeholder {
+                width: 200px;
+                height: 200px;
+            }
+            .phase-journey {
+                grid-template-columns: 1fr;
+            }
+            .enrichment-grid {
+                grid-template-columns: 1fr;
+            }
+            .stakes-visual {
+                flex-direction: column;
+            }
+            .stakes-stage::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+    <main class="main-content">
+        <div class="logo-container">
+            <img src="data:image/png;base64,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" alt="Calix Logo" style="width:180px;height:auto;display:block;margin:-40px 0 10px 0;">
+        </div>
+        <div class="pillar-label">Module 2</div>
+        <div class="chapter-label">Chapter 8</div>
+
+        <div class="header-section">
+            <!-- ============================================================
+                 SWAP: INTRO IMAGE
+                 Replace this placeholder div with an <img> tag using base64 src
+                 ============================================================ -->
+            <div class="intro-image-placeholder">
+                <span>Agent Placeholder</span>
+            </div>
+
+            <h1>Data Quality as the Force Multiplier Across the AI Journey</h1>
+
+            <p class="intro-text">Chapter 7 established that AI success is ultimately a leadership and change challenge; this chapter focuses on the single discipline that determines whether that change sticks: data quality and the trust it creates.</p>
+
+            <p class="chapter-description">Employees and customers ask good questions every day. In most cases, the answers already exist somewhere in your organization. Data is the bridge between questions and confident action. For broadband providers, the opportunity is rarely about collecting more data—it is about making better use of what already exists. When information is fragmented, inconsistent, or inaccessible, AI scales confusion. When it is clean and connected, AI amplifies good decisions that are more consistent and faster.</p>
+        </div>
+
+        <div class="learning-box">
+            <h3>What You'll Learn</h3>
+            <ul>
+                <li>See how data quality requirements evolve across the four AI phases</li>
+                <li>Understand why trust is the true product of data quality</li>
+                <li>Build sustainable data habits that support scale</li>
+                <li>Prepare for agentic workflows without over-engineering</li>
+            </ul>
+        </div>
+
+        <h2>Data Quality and the AI Journey</h2>
+
+        <p>The four phases of the AI Journey build on one another, and each phase progressively raises the bar for data quality. Think of it as climbing a staircase: every step demands a stronger foundation beneath it. Skip a step early and you may still get a pilot off the ground, but you will struggle to scale later. The discipline you invest in data quality at each stage compounds, accelerating every phase that follows.</p>
+
+        <div class="phase-journey">
+            <div class="phase-card">
+                <div class="phase-card-header">
+                    <div class="phase-number">1</div>
+                    <div class="phase-card-title">AI Assistants</div>
+                </div>
+                <!-- SWAP: PHASE 1 IMAGE — Replace SVG with base64 img if needed -->
+                <div class="phase-card-image">
+                    <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="480" height="160" rx="8" fill="#f0f4ff"/>
+                        <!-- Chat bubble left -->
+                        <rect x="30" y="24" width="160" height="44" rx="12" fill="#fff" stroke="#0B38DB" stroke-width="1.5"/>
+                        <circle cx="54" cy="46" r="6" fill="#0B38DB" opacity="0.3"/>
+                        <rect x="68" y="39" width="100" height="6" rx="3" fill="#0B38DB" opacity="0.18"/>
+                        <rect x="68" y="49" width="70" height="6" rx="3" fill="#0B38DB" opacity="0.12"/>
+                        <!-- Chat bubble right (AI response) -->
+                        <rect x="80" y="78" width="180" height="52" rx="12" fill="#0B38DB" opacity="0.9"/>
+                        <rect x="100" y="92" width="140" height="6" rx="3" fill="#fff" opacity="0.7"/>
+                        <rect x="100" y="102" width="120" height="6" rx="3" fill="#fff" opacity="0.5"/>
+                        <rect x="100" y="112" width="80" height="6" rx="3" fill="#fff" opacity="0.35"/>
+                        <!-- Knowledge base icon -->
+                        <g transform="translate(320, 30)">
+                            <rect x="0" y="0" width="100" height="100" rx="12" fill="#fff" stroke="#d0d8e8" stroke-width="1.5"/>
+                            <rect x="16" y="18" width="68" height="6" rx="3" fill="#0B38DB" opacity="0.25"/>
+                            <rect x="16" y="30" width="50" height="6" rx="3" fill="#0B38DB" opacity="0.18"/>
+                            <line x1="16" y1="44" x2="84" y2="44" stroke="#e8ecf4" stroke-width="1"/>
+                            <rect x="16" y="52" width="68" height="6" rx="3" fill="#0B38DB" opacity="0.25"/>
+                            <rect x="16" y="64" width="44" height="6" rx="3" fill="#0B38DB" opacity="0.18"/>
+                            <line x1="16" y1="78" x2="84" y2="78" stroke="#e8ecf4" stroke-width="1"/>
+                            <rect x="16" y="84" width="56" height="6" rx="3" fill="#0B38DB" opacity="0.15"/>
+                            <text x="50" y="-6" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="10" fill="#0B38DB" font-weight="600">KNOWLEDGE BASE</text>
+                        </g>
+                        <!-- Connection arrow -->
+                        <line x1="270" y1="80" x2="310" y2="80" stroke="#0B38DB" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.4"/>
+                        <polygon points="310,75 320,80 310,85" fill="#0B38DB" opacity="0.4"/>
+                    </svg>
+                </div>
+                <p>Require accurate, current knowledge sources to deliver consistent answers. If your knowledge base is outdated or contradictory, even the most capable assistant will give unreliable guidance.</p>
+                <span class="data-badge">Foundation</span>
+            </div>
+            <div class="phase-card">
+                <div class="phase-card-header">
+                    <div class="phase-number">2</div>
+                    <div class="phase-card-title">Knowledge Enrichment</div>
+                </div>
+                <!-- SWAP: PHASE 2 IMAGE — Replace SVG with base64 img if needed -->
+                <div class="phase-card-image">
+                    <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="480" height="160" rx="8" fill="#fff8f0"/>
+                        <!-- Cycle diagram -->
+                        <g transform="translate(240, 80)">
+                            <!-- Outer ring segments -->
+                            <circle cx="0" cy="0" r="58" fill="none" stroke="#FF7600" stroke-width="3" stroke-dasharray="30,12" opacity="0.3"/>
+                            <circle cx="0" cy="0" r="58" fill="none" stroke="#FF7600" stroke-width="3" stroke-dasharray="30,12" opacity="0.6" transform="rotate(45)"/>
+                            <!-- Center circle -->
+                            <circle cx="0" cy="0" r="28" fill="#FF7600" opacity="0.12"/>
+                            <text x="0" y="-4" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#FF7600" font-weight="600">ENRICH</text>
+                            <text x="0" y="8" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#FF7600" font-weight="600">& LEARN</text>
+                            <!-- Node circles -->
+                            <g transform="translate(0, -58)">
+                                <circle cx="0" cy="0" r="14" fill="#FF7600" opacity="0.85"/>
+                                <text x="0" y="1" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7" fill="#fff" font-weight="600">ADD</text>
+                            </g>
+                            <g transform="translate(58, 0)">
+                                <circle cx="0" cy="0" r="14" fill="#FF7600" opacity="0.7"/>
+                                <text x="0" y="1" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7" fill="#fff" font-weight="600">VERIFY</text>
+                            </g>
+                            <g transform="translate(0, 58)">
+                                <circle cx="0" cy="0" r="14" fill="#FF7600" opacity="0.55"/>
+                                <text x="0" y="1" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7" fill="#fff" font-weight="600">CURATE</text>
+                            </g>
+                            <g transform="translate(-58, 0)">
+                                <circle cx="0" cy="0" r="14" fill="#FF7600" opacity="0.85"/>
+                                <text x="0" y="1" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="6.5" fill="#fff" font-weight="600">UPDATE</text>
+                            </g>
+                        </g>
+                        <!-- Left: stale data -->
+                        <g transform="translate(28, 36)">
+                            <rect x="0" y="0" width="80" height="88" rx="8" fill="#fff" stroke="#e0d0c0" stroke-width="1.2" stroke-dasharray="4,3"/>
+                            <rect x="12" y="14" width="56" height="5" rx="2.5" fill="#ccc"/>
+                            <rect x="12" y="24" width="40" height="5" rx="2.5" fill="#ddd"/>
+                            <rect x="12" y="38" width="56" height="5" rx="2.5" fill="#ccc"/>
+                            <rect x="12" y="48" width="48" height="5" rx="2.5" fill="#ddd"/>
+                            <rect x="12" y="62" width="56" height="5" rx="2.5" fill="#ccc"/>
+                            <rect x="12" y="72" width="32" height="5" rx="2.5" fill="#ddd"/>
+                            <text x="40" y="-6" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#999" font-weight="600">DAY 1</text>
+                        </g>
+                        <!-- Right: enriched data -->
+                        <g transform="translate(372, 36)">
+                            <rect x="0" y="0" width="80" height="88" rx="8" fill="#fff" stroke="#FF7600" stroke-width="1.5"/>
+                            <rect x="12" y="14" width="56" height="5" rx="2.5" fill="#FF7600" opacity="0.6"/>
+                            <rect x="12" y="24" width="40" height="5" rx="2.5" fill="#FF7600" opacity="0.4"/>
+                            <rect x="12" y="38" width="56" height="5" rx="2.5" fill="#FF7600" opacity="0.6"/>
+                            <rect x="12" y="48" width="48" height="5" rx="2.5" fill="#FF7600" opacity="0.4"/>
+                            <rect x="12" y="62" width="56" height="5" rx="2.5" fill="#FF7600" opacity="0.6"/>
+                            <rect x="12" y="72" width="32" height="5" rx="2.5" fill="#FF7600" opacity="0.4"/>
+                            <circle cx="68" cy="8" r="8" fill="#27ae60"/>
+                            <polyline points="63,8 66,11 73,5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <text x="40" y="-6" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#FF7600" font-weight="600">DAY 90+</text>
+                        </g>
+                        <!-- Arrows -->
+                        <line x1="116" y1="80" x2="170" y2="80" stroke="#FF7600" stroke-width="1.2" opacity="0.35"/>
+                        <polygon points="170,76 178,80 170,84" fill="#FF7600" opacity="0.35"/>
+                        <line x1="310" y1="80" x2="364" y2="80" stroke="#FF7600" stroke-width="1.2" opacity="0.35"/>
+                        <polygon points="364,76 372,80 364,84" fill="#FF7600" opacity="0.35"/>
+                    </svg>
+                </div>
+                <p>The never-ending process of enhancing existing sources to make them more accurate, relevant, and actionable. This is where data evolves from static reference into a living, learning resource.</p>
+                <span class="data-badge">Continuous</span>
+            </div>
+            <div class="phase-card">
+                <div class="phase-card-header">
+                    <div class="phase-number">3</div>
+                    <div class="phase-card-title">Telemetry</div>
+                </div>
+                <!-- SWAP: PHASE 3 IMAGE — Replace SVG with base64 img if needed -->
+                <div class="phase-card-image">
+                    <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="480" height="160" rx="8" fill="#f0faf4"/>
+                        <!-- Live data stream visualization -->
+                        <!-- Left: device icons -->
+                        <g transform="translate(24, 20)">
+                            <!-- Router icon -->
+                            <rect x="4" y="8" width="56" height="36" rx="6" fill="#fff" stroke="#27ae60" stroke-width="1.5"/>
+                            <circle cx="20" cy="26" r="3" fill="#27ae60" opacity="0.7"/>
+                            <circle cx="32" cy="26" r="3" fill="#27ae60"/>
+                            <circle cx="44" cy="26" r="3" fill="#27ae60" opacity="0.5"/>
+                            <line x1="32" y1="8" x2="32" y2="0" stroke="#27ae60" stroke-width="1.2"/>
+                            <line x1="26" y1="2" x2="32" y2="0" stroke="#27ae60" stroke-width="1"/>
+                            <line x1="38" y1="2" x2="32" y2="0" stroke="#27ae60" stroke-width="1"/>
+                            <text x="32" y="56" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#27ae60" font-weight="600">ROUTER</text>
+                        </g>
+                        <g transform="translate(24, 88)">
+                            <!-- Device icon -->
+                            <rect x="10" y="4" width="44" height="30" rx="4" fill="#fff" stroke="#27ae60" stroke-width="1.2"/>
+                            <rect x="22" y="34" width="20" height="4" rx="2" fill="#27ae60" opacity="0.3"/>
+                            <rect x="16" y="12" width="32" height="4" rx="2" fill="#27ae60" opacity="0.2"/>
+                            <rect x="16" y="20" width="24" height="4" rx="2" fill="#27ae60" opacity="0.15"/>
+                            <text x="32" y="52" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#27ae60" font-weight="600">DEVICES</text>
+                        </g>
+                        <!-- Stream lines -->
+                        <g opacity="0.5">
+                            <line x1="88" y1="44" x2="160" y2="56" stroke="#27ae60" stroke-width="1" stroke-dasharray="3,3"/>
+                            <line x1="88" y1="110" x2="160" y2="90" stroke="#27ae60" stroke-width="1" stroke-dasharray="3,3"/>
+                        </g>
+                        <!-- Center: real-time dashboard -->
+                        <g transform="translate(160, 16)">
+                            <rect x="0" y="0" width="160" height="128" rx="10" fill="#fff" stroke="#27ae60" stroke-width="1.5"/>
+                            <text x="80" y="18" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#27ae60" font-weight="600">LIVE TELEMETRY</text>
+                            <line x1="12" y1="26" x2="148" y2="26" stroke="#e8f5e9" stroke-width="1"/>
+                            <!-- Mini line chart -->
+                            <polyline points="20,70 40,55 60,62 80,45 100,50 120,38 140,42" fill="none" stroke="#27ae60" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="20,85 40,80 60,90 80,75 100,82 120,70 140,68" fill="none" stroke="#27ae60" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                            <!-- Mini metric boxes -->
+                            <rect x="16" y="98" width="36" height="20" rx="4" fill="#e8f5e9"/>
+                            <text x="34" y="112" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#27ae60" font-weight="600">98.2%</text>
+                            <rect x="62" y="98" width="36" height="20" rx="4" fill="#e8f5e9"/>
+                            <text x="80" y="112" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#27ae60" font-weight="600">42ms</text>
+                            <rect x="108" y="98" width="36" height="20" rx="4" fill="#e8f5e9"/>
+                            <text x="126" y="112" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#27ae60" font-weight="600">↑ 12%</text>
+                        </g>
+                        <!-- Right: personalized insight -->
+                        <g transform="translate(348, 30)">
+                            <rect x="0" y="0" width="108" height="100" rx="10" fill="#27ae60" opacity="0.1" stroke="#27ae60" stroke-width="1"/>
+                            <circle cx="54" cy="30" r="16" fill="#27ae60" opacity="0.2"/>
+                            <circle cx="54" cy="26" r="6" fill="#27ae60" opacity="0.5"/>
+                            <path d="M42,38 C42,32 66,32 66,38" fill="#27ae60" opacity="0.3"/>
+                            <rect x="14" y="56" width="80" height="5" rx="2.5" fill="#27ae60" opacity="0.3"/>
+                            <rect x="20" y="66" width="68" height="5" rx="2.5" fill="#27ae60" opacity="0.2"/>
+                            <rect x="24" y="76" width="60" height="5" rx="2.5" fill="#27ae60" opacity="0.15"/>
+                            <text x="54" y="-6" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#27ae60" font-weight="600">PERSONALIZED</text>
+                        </g>
+                        <!-- Arrow right -->
+                        <line x1="328" y1="80" x2="342" y2="80" stroke="#27ae60" stroke-width="1.2" opacity="0.4"/>
+                        <polygon points="342,76 350,80 342,84" fill="#27ae60" opacity="0.4"/>
+                    </svg>
+                </div>
+                <p>Adds real-time usage and performance data to deliver personalized, actionable insights that improve each subscriber's experience and outcomes.</p>
+                <span class="data-badge">Real-Time</span>
+            </div>
+            <div class="phase-card">
+                <div class="phase-card-header">
+                    <div class="phase-number">4</div>
+                    <div class="phase-card-title">AI Agentic Workflows</div>
+                </div>
+                <!-- SWAP: PHASE 4 IMAGE — Replace SVG with base64 img if needed -->
+                <div class="phase-card-image">
+                    <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="480" height="160" rx="8" fill="#f8f0fc"/>
+                        <!-- Workflow pipeline -->
+                        <!-- Step 1: Trigger -->
+                        <g transform="translate(20, 38)">
+                            <rect x="0" y="0" width="80" height="84" rx="10" fill="#fff" stroke="#8e44ad" stroke-width="1.5"/>
+                            <circle cx="40" cy="30" r="16" fill="#8e44ad" opacity="0.12"/>
+                            <text x="40" y="28" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="18" fill="#8e44ad">⚡</text>
+                            <text x="40" y="56" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#8e44ad" font-weight="600">TRIGGER</text>
+                            <text x="40" y="68" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7.5" fill="#888">Event detected</text>
+                        </g>
+                        <!-- Arrow -->
+                        <line x1="108" y1="80" x2="128" y2="80" stroke="#8e44ad" stroke-width="1.5" opacity="0.35"/>
+                        <polygon points="128,76 136,80 128,84" fill="#8e44ad" opacity="0.35"/>
+                        <!-- Step 2: Evaluate -->
+                        <g transform="translate(140, 38)">
+                            <rect x="0" y="0" width="80" height="84" rx="10" fill="#fff" stroke="#8e44ad" stroke-width="1.5"/>
+                            <circle cx="40" cy="30" r="16" fill="#8e44ad" opacity="0.12"/>
+                            <text x="40" y="28" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="18" fill="#8e44ad">🧠</text>
+                            <text x="40" y="56" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#8e44ad" font-weight="600">EVALUATE</text>
+                            <text x="40" y="68" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7.5" fill="#888">AI decides</text>
+                        </g>
+                        <!-- Arrow -->
+                        <line x1="228" y1="80" x2="248" y2="80" stroke="#8e44ad" stroke-width="1.5" opacity="0.35"/>
+                        <polygon points="248,76 256,80 248,84" fill="#8e44ad" opacity="0.35"/>
+                        <!-- Step 3: Act -->
+                        <g transform="translate(260, 38)">
+                            <rect x="0" y="0" width="80" height="84" rx="10" fill="#fff" stroke="#8e44ad" stroke-width="1.5"/>
+                            <circle cx="40" cy="30" r="16" fill="#8e44ad" opacity="0.12"/>
+                            <text x="40" y="28" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="18" fill="#8e44ad">🚀</text>
+                            <text x="40" y="56" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#8e44ad" font-weight="600">ACT</text>
+                            <text x="40" y="68" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7.5" fill="#888">Auto-execute</text>
+                        </g>
+                        <!-- Arrow -->
+                        <line x1="348" y1="80" x2="368" y2="80" stroke="#8e44ad" stroke-width="1.5" opacity="0.35"/>
+                        <polygon points="368,76 376,80 368,84" fill="#8e44ad" opacity="0.35"/>
+                        <!-- Step 4: Verify -->
+                        <g transform="translate(380, 38)">
+                            <rect x="0" y="0" width="80" height="84" rx="10" fill="#fff" stroke="#8e44ad" stroke-width="1.5"/>
+                            <circle cx="40" cy="30" r="16" fill="#8e44ad" opacity="0.12"/>
+                            <text x="40" y="28" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="18" fill="#8e44ad">✅</text>
+                            <text x="40" y="56" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#8e44ad" font-weight="600">VERIFY</text>
+                            <text x="40" y="68" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7.5" fill="#888">Log & confirm</text>
+                        </g>
+                        <!-- Loop-back arrow (subtle) -->
+                        <path d="M420,130 C420,148 60,148 60,130" fill="none" stroke="#8e44ad" stroke-width="1" stroke-dasharray="4,3" opacity="0.2"/>
+                        <polygon points="56,132 60,124 64,132" fill="#8e44ad" opacity="0.2"/>
+                        <text x="240" y="152" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#8e44ad" opacity="0.5" font-weight="600">CONTINUOUS LOOP</text>
+                        <!-- Top label -->
+                        <text x="240" y="24" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="10" fill="#8e44ad" font-weight="600" letter-spacing="2">AUTONOMOUS WORKFLOW PIPELINE</text>
+                    </svg>
+                </div>
+                <p>Excel with dependable data, clear handoffs, and predictable processes. At this stage, AI moves from recommendation to autonomous action.</p>
+                <span class="data-badge">Enterprise-Scale</span>
+            </div>
+        </div>
+
+        <div class="important-box">
+            <p><strong>Key point:</strong> Skipping data discipline early may still allow pilots to launch—but it will prevent scale later. Every hour invested in data quality at Phase 1 saves exponentially more effort in Phases 3 and 4.</p>
+        </div>
+
+        <h2>Trust Is the Real Output of Data Quality</h2>
+
+        <p>AI does not fail because it lacks intelligence. It fails when it is not trustworthy. As more people across your organization and customer base are exposed to AI, they are increasingly asking themselves a set of critical questions—and the answers they arrive at will determine whether AI adoption succeeds or stalls.</p>
+
+        <div class="trust-reflection">
+            <div class="trust-reflection-header">Ask Yourself — and Your Team</div>
+            <div class="trust-reflection-subhead">These are the questions your employees and subscribers are already asking. How you answer them will determine whether AI adoption succeeds or stalls.</div>
+
+            <div class="trust-question">
+                <div class="trust-question-number">1</div>
+                <div>
+                    <div class="trust-question-text">"Do I trust this AI to give me an accurate and reliable answer?"</div>
+                    <div class="trust-question-context">If the underlying data is wrong, the answer will be wrong — and people will stop asking.</div>
+                </div>
+            </div>
+
+            <div class="trust-question">
+                <div class="trust-question-number">2</div>
+                <div>
+                    <div class="trust-question-text">"Do I trust that this recommendation is based on complete and current information?"</div>
+                    <div class="trust-question-context">Outdated knowledge creates outdated guidance. Teams need to know AI is working from the same reality they are.</div>
+                </div>
+            </div>
+
+            <div class="trust-question">
+                <div class="trust-question-number">3</div>
+                <div>
+                    <div class="trust-question-text">"Do I trust that my data and account are being handled safely and responsibly?"</div>
+                    <div class="trust-question-context">Subscribers will not engage with AI-powered experiences unless they feel their information is protected.</div>
+                </div>
+            </div>
+
+            <div class="trust-question">
+                <div class="trust-question-number">4</div>
+                <div>
+                    <div class="trust-question-text">"Do I trust that I can reach a human if something goes wrong?"</div>
+                    <div class="trust-question-context">Even the best AI needs a safety net. Confidence grows when people know escalation paths exist.</div>
+                </div>
+            </div>
+        </div>
+
+        <p>Trust is built on data quality. When the information AI relies on is incomplete, outdated, or inconsistent, AI simply accelerates confusion. When data is accurate, current, and connected, AI becomes a reliable decision partner that teams are willing to act on.</p>
+
+        <div class="callout-box">
+            <p><strong>Trust is the threshold</strong> at which data quality becomes a leadership issue rather than a technical one. Without it, AI remains confined to pilots. Sustaining that trust requires disciplined knowledge enrichment: clear ownership, continuous curation, and active governance of the information AI depends on to perform reliably.</p>
+        </div>
+
+        <h2>Knowledge Enrichment Enables Scale</h2>
+
+        <p>On Day 1 of any AI implementation, your knowledge base is at its weakest. And this is not because of a lack of effort, but because AI systems are designed to learn, adapt, and improve through use. Machine learning is a cognitive feature of AI that strengthens over time, but only when it is fed accurate, current, and well-structured knowledge. Without intentional enrichment, AI simply learns faster from outdated or incomplete information—amplifying the very problems you hoped it would solve.</p>
+
+        <div class="tip-box">
+            <p><strong>Key insight:</strong> Think of knowledge enrichment not as a one-time cleanup project, but as an ongoing discipline—like maintaining a garden. The work is never done, but the rewards grow with each passing season.</p>
+        </div>
+
+        <h3>Effective Enrichment Practices</h3>
+
+        <p>Building a sustainable knowledge enrichment process does not require massive infrastructure or specialized teams. It requires commitment to a handful of simple, repeatable practices that prevent confusion from creeping back in and ensure AI outputs remain credible as usage expands.</p>
+
+        <div class="enrichment-grid">
+            <div class="enrichment-card">
+                <!-- SWAP: ENRICHMENT IMAGE 1 — Replace SVG with base64 img if needed -->
+                <div class="enrichment-card-image">
+                    <svg viewBox="0 0 480 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="480" height="150" fill="#fafafa"/>
+                        <!-- Person silhouettes with ownership badges -->
+                        <g transform="translate(80, 20)">
+                            <!-- Domain block 1 -->
+                            <rect x="0" y="38" width="90" height="56" rx="8" fill="#fff" stroke="#0B38DB" stroke-width="1.5"/>
+                            <rect x="12" y="50" width="66" height="5" rx="2.5" fill="#0B38DB" opacity="0.2"/>
+                            <rect x="12" y="60" width="50" height="5" rx="2.5" fill="#0B38DB" opacity="0.14"/>
+                            <rect x="12" y="70" width="58" height="5" rx="2.5" fill="#0B38DB" opacity="0.1"/>
+                            <rect x="12" y="80" width="40" height="5" rx="2.5" fill="#0B38DB" opacity="0.08"/>
+                            <!-- Owner badge -->
+                            <circle cx="45" cy="18" r="16" fill="#FF7600" opacity="0.12"/>
+                            <circle cx="45" cy="14" r="6" fill="#FF7600" opacity="0.5"/>
+                            <path d="M35,24 C35,19 55,19 55,24" fill="#FF7600" opacity="0.35"/>
+                            <rect x="18" y="30" width="54" height="12" rx="6" fill="#FF7600" opacity="0.85"/>
+                            <text x="45" y="39" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7" fill="#fff" font-weight="600">OWNER: J.S.</text>
+                        </g>
+                        <g transform="translate(200, 20)">
+                            <!-- Domain block 2 -->
+                            <rect x="0" y="38" width="90" height="56" rx="8" fill="#fff" stroke="#0B38DB" stroke-width="1.5"/>
+                            <rect x="12" y="50" width="66" height="5" rx="2.5" fill="#0B38DB" opacity="0.2"/>
+                            <rect x="12" y="60" width="44" height="5" rx="2.5" fill="#0B38DB" opacity="0.14"/>
+                            <rect x="12" y="70" width="58" height="5" rx="2.5" fill="#0B38DB" opacity="0.1"/>
+                            <rect x="12" y="80" width="50" height="5" rx="2.5" fill="#0B38DB" opacity="0.08"/>
+                            <circle cx="45" cy="18" r="16" fill="#FF7600" opacity="0.12"/>
+                            <circle cx="45" cy="14" r="6" fill="#FF7600" opacity="0.5"/>
+                            <path d="M35,24 C35,19 55,19 55,24" fill="#FF7600" opacity="0.35"/>
+                            <rect x="18" y="30" width="54" height="12" rx="6" fill="#FF7600" opacity="0.85"/>
+                            <text x="45" y="39" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7" fill="#fff" font-weight="600">OWNER: M.R.</text>
+                        </g>
+                        <g transform="translate(320, 20)">
+                            <!-- Domain block 3 -->
+                            <rect x="0" y="38" width="90" height="56" rx="8" fill="#fff" stroke="#0B38DB" stroke-width="1.5"/>
+                            <rect x="12" y="50" width="66" height="5" rx="2.5" fill="#0B38DB" opacity="0.2"/>
+                            <rect x="12" y="60" width="56" height="5" rx="2.5" fill="#0B38DB" opacity="0.14"/>
+                            <rect x="12" y="70" width="40" height="5" rx="2.5" fill="#0B38DB" opacity="0.1"/>
+                            <rect x="12" y="80" width="60" height="5" rx="2.5" fill="#0B38DB" opacity="0.08"/>
+                            <circle cx="45" cy="18" r="16" fill="#FF7600" opacity="0.12"/>
+                            <circle cx="45" cy="14" r="6" fill="#FF7600" opacity="0.5"/>
+                            <path d="M35,24 C35,19 55,19 55,24" fill="#FF7600" opacity="0.35"/>
+                            <rect x="18" y="30" width="54" height="12" rx="6" fill="#FF7600" opacity="0.85"/>
+                            <text x="45" y="39" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="7" fill="#fff" font-weight="600">OWNER: K.L.</text>
+                        </g>
+                        <!-- Bottom label -->
+                        <text x="240" y="134" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="10" fill="#999" font-weight="600">NAMED OWNERS → CLEAR ACCOUNTABILITY</text>
+                    </svg>
+                </div>
+                <div class="enrichment-card-body">
+                    <div class="enrichment-card-number">1</div>
+                    <div class="enrichment-card-title">Clear Ownership of Key Data Domains</div>
+                    <p>Assign named owners for each critical knowledge area. When everyone is responsible, no one is responsible. Ownership creates accountability and ensures someone is actively watching for drift.</p>
+                </div>
+            </div>
+
+            <div class="enrichment-card">
+                <!-- SWAP: ENRICHMENT IMAGE 2 — Replace SVG with base64 img if needed -->
+                <div class="enrichment-card-image">
+                    <svg viewBox="0 0 480 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="480" height="150" fill="#fafafa"/>
+                        <!-- Messy docs on left, clean docs on right -->
+                        <!-- Left: inconsistent naming -->
+                        <g transform="translate(40, 14)">
+                            <text x="80" y="10" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="10" fill="#c0392b" font-weight="600">BEFORE</text>
+                            <rect x="0" y="18" width="160" height="110" rx="8" fill="#fff" stroke="#e0d0d0" stroke-width="1.2"/>
+                            <rect x="14" y="30" width="132" height="18" rx="4" fill="#fef0f0"/>
+                            <text x="22" y="43" font-family="monospace" font-size="9" fill="#999">setup_guide_FINAL_v3</text>
+                            <rect x="14" y="54" width="132" height="18" rx="4" fill="#fef0f0"/>
+                            <text x="22" y="67" font-family="monospace" font-size="9" fill="#999">New Proc - Copy (2)</text>
+                            <rect x="14" y="78" width="132" height="18" rx="4" fill="#fef0f0"/>
+                            <text x="22" y="91" font-family="monospace" font-size="9" fill="#999">troubleshoot_OLD_USE</text>
+                            <rect x="14" y="102" width="132" height="18" rx="4" fill="#fef0f0"/>
+                            <text x="22" y="115" font-family="monospace" font-size="9" fill="#999">KB misc notes 11.4</text>
+                        </g>
+                        <!-- Arrow -->
+                        <g transform="translate(220, 60)">
+                            <line x1="0" y1="15" x2="36" y2="15" stroke="#FF7600" stroke-width="2"/>
+                            <polygon points="36,10 46,15 36,20" fill="#FF7600"/>
+                        </g>
+                        <!-- Right: clean naming -->
+                        <g transform="translate(280, 14)">
+                            <text x="80" y="10" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="10" fill="#27ae60" font-weight="600">AFTER</text>
+                            <rect x="0" y="18" width="160" height="110" rx="8" fill="#fff" stroke="#27ae60" stroke-width="1.5"/>
+                            <rect x="14" y="30" width="132" height="18" rx="4" fill="#e8f5e9"/>
+                            <text x="22" y="43" font-family="monospace" font-size="9" fill="#27ae60">KB-001 Setup Guide</text>
+                            <rect x="14" y="54" width="132" height="18" rx="4" fill="#e8f5e9"/>
+                            <text x="22" y="67" font-family="monospace" font-size="9" fill="#27ae60">KB-002 Install Process</text>
+                            <rect x="14" y="78" width="132" height="18" rx="4" fill="#e8f5e9"/>
+                            <text x="22" y="91" font-family="monospace" font-size="9" fill="#27ae60">KB-003 Troubleshooting</text>
+                            <rect x="14" y="102" width="132" height="18" rx="4" fill="#e8f5e9"/>
+                            <text x="22" y="115" font-family="monospace" font-size="9" fill="#27ae60">KB-004 Network Config</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="enrichment-card-body">
+                    <div class="enrichment-card-number">2</div>
+                    <div class="enrichment-card-title">Simple Naming and Documentation Standards</div>
+                    <p>Establish consistent conventions so that knowledge articles, data fields, and processes are easy to find and understand. Complexity is the enemy of adoption.</p>
+                </div>
+            </div>
+
+            <div class="enrichment-card">
+                <!-- SWAP: ENRICHMENT IMAGE 3 — Replace SVG with base64 img if needed -->
+                <div class="enrichment-card-image">
+                    <svg viewBox="0 0 480 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="480" height="150" fill="#fafafa"/>
+                        <!-- Calendar/cadence visual -->
+                        <g transform="translate(60, 12)">
+                            <!-- Month blocks -->
+                            <g transform="translate(0, 0)">
+                                <rect x="0" y="16" width="80" height="80" rx="8" fill="#fff" stroke="#0B38DB" stroke-width="1.5"/>
+                                <rect x="0" y="16" width="80" height="22" rx="8" fill="#0B38DB"/>
+                                <rect x="0" y="30" width="80" height="8" fill="#0B38DB"/>
+                                <text x="40" y="32" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#fff" font-weight="600">JANUARY</text>
+                                <!-- Mini grid -->
+                                <g transform="translate(10, 46)">
+                                    <rect x="0" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="12" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="24" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="36" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="48" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="0" y="12" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="12" y="12" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="24" y="12" width="8" height="8" rx="2" fill="#FF7600" opacity="0.7"/>
+                                    <rect x="36" y="12" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="48" y="12" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="0" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="12" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="24" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="36" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="48" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                </g>
+                                <text x="40" y="106" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#FF7600" font-weight="600">✓ REVIEW</text>
+                            </g>
+                            <!-- Arrow -->
+                            <line x1="90" y1="56" x2="110" y2="56" stroke="#ccc" stroke-width="1.5"/>
+                            <polygon points="110,52 118,56 110,60" fill="#ccc"/>
+                            <!-- Feb -->
+                            <g transform="translate(120, 0)">
+                                <rect x="0" y="16" width="80" height="80" rx="8" fill="#fff" stroke="#e0e0e0" stroke-width="1.2"/>
+                                <rect x="0" y="16" width="80" height="22" rx="8" fill="#888"/>
+                                <rect x="0" y="30" width="80" height="8" fill="#888"/>
+                                <text x="40" y="32" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#fff" font-weight="600">FEBRUARY</text>
+                                <g transform="translate(10, 46)">
+                                    <rect x="0" y="0" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                    <rect x="12" y="0" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                    <rect x="24" y="0" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                    <rect x="36" y="0" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                    <rect x="48" y="0" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                    <rect x="0" y="12" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                    <rect x="12" y="12" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                    <rect x="24" y="12" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                    <rect x="36" y="12" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                    <rect x="48" y="12" width="8" height="8" rx="2" fill="#aaa" opacity="0.2"/>
+                                </g>
+                                <text x="40" y="106" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#aaa">—</text>
+                            </g>
+                            <!-- Arrow -->
+                            <line x1="210" y1="56" x2="230" y2="56" stroke="#ccc" stroke-width="1.5"/>
+                            <polygon points="230,52 238,56 230,60" fill="#ccc"/>
+                            <!-- March -->
+                            <g transform="translate(240, 0)">
+                                <rect x="0" y="16" width="80" height="80" rx="8" fill="#fff" stroke="#0B38DB" stroke-width="1.5"/>
+                                <rect x="0" y="16" width="80" height="22" rx="8" fill="#0B38DB"/>
+                                <rect x="0" y="30" width="80" height="8" fill="#0B38DB"/>
+                                <text x="40" y="32" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#fff" font-weight="600">MARCH</text>
+                                <g transform="translate(10, 46)">
+                                    <rect x="0" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="12" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="24" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="36" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="48" y="0" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="0" y="12" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="12" y="12" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="24" y="12" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="36" y="12" width="8" height="8" rx="2" fill="#FF7600" opacity="0.7"/>
+                                    <rect x="48" y="12" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="0" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="12" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="24" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="36" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                    <rect x="48" y="24" width="8" height="8" rx="2" fill="#0B38DB" opacity="0.15"/>
+                                </g>
+                                <text x="40" y="106" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#FF7600" font-weight="600">✓ REVIEW</text>
+                            </g>
+                        </g>
+                        <text x="240" y="140" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="10" fill="#999" font-weight="600">RECURRING CADENCE BEATS ANNUAL OVERHAUL</text>
+                    </svg>
+                </div>
+                <div class="enrichment-card-body">
+                    <div class="enrichment-card-number">3</div>
+                    <div class="enrichment-card-title">Lightweight Monthly or Quarterly Review Cadence</div>
+                    <p>Schedule regular check-ins to verify accuracy, retire outdated content, and surface gaps. A short, recurring review beats an annual overhaul every time.</p>
+                </div>
+            </div>
+
+            <div class="enrichment-card">
+                <!-- SWAP: ENRICHMENT IMAGE 4 — Replace SVG with base64 img if needed -->
+                <div class="enrichment-card-image">
+                    <svg viewBox="0 0 480 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="480" height="150" fill="#fafafa"/>
+                        <!-- Document freshness timeline -->
+                        <!-- Timeline bar -->
+                        <line x1="50" y1="75" x2="430" y2="75" stroke="#e0e0e0" stroke-width="3" stroke-linecap="round"/>
+                        <!-- Fresh zone -->
+                        <line x1="50" y1="75" x2="200" y2="75" stroke="#27ae60" stroke-width="3" stroke-linecap="round"/>
+                        <!-- Warning zone -->
+                        <line x1="200" y1="75" x2="320" y2="75" stroke="#FF7600" stroke-width="3"/>
+                        <!-- Stale zone -->
+                        <line x1="320" y1="75" x2="430" y2="75" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+                        <!-- Marker dots -->
+                        <circle cx="50" cy="75" r="6" fill="#27ae60"/>
+                        <circle cx="200" cy="75" r="6" fill="#FF7600"/>
+                        <circle cx="320" cy="75" r="6" fill="#c0392b"/>
+                        <circle cx="430" cy="75" r="6" fill="#c0392b" opacity="0.5"/>
+                        <!-- Labels above -->
+                        <text x="50" y="50" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#27ae60" font-weight="600">VERIFIED</text>
+                        <text x="50" y="60" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#888">Jan 15</text>
+                        <text x="200" y="50" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#FF7600" font-weight="600">REVIEW DUE</text>
+                        <text x="200" y="60" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#888">Apr 15</text>
+                        <text x="320" y="50" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#c0392b" font-weight="600">STALE</text>
+                        <text x="320" y="60" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#888">Jul 15</text>
+                        <text x="430" y="50" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="9" fill="#c0392b" opacity="0.6" font-weight="600">ARCHIVE</text>
+                        <text x="430" y="60" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#888">Oct 15</text>
+                        <!-- Zone labels below -->
+                        <rect x="80" y="90" width="80" height="18" rx="9" fill="#e8f5e9"/>
+                        <text x="120" y="103" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#27ae60" font-weight="600">CURRENT</text>
+                        <rect x="220" y="90" width="80" height="18" rx="9" fill="#fff3e8"/>
+                        <text x="260" y="103" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#FF7600" font-weight="600">NEEDS REVIEW</text>
+                        <rect x="340" y="90" width="80" height="18" rx="9" fill="#fde8e8"/>
+                        <text x="380" y="103" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="8" fill="#c0392b" font-weight="600">RETIRE / UPDATE</text>
+                        <!-- Top title -->
+                        <text x="240" y="28" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="10" fill="#999" font-weight="600">CONTENT FRESHNESS LIFECYCLE</text>
+                    </svg>
+                </div>
+                <div class="enrichment-card-body">
+                    <div class="enrichment-card-number">4</div>
+                    <div class="enrichment-card-title">Freshness Dates and Archiving Policies</div>
+                    <p>Tag content with "last verified" dates and set clear rules for when material should be reviewed, updated, or removed. Stale information is worse than no information—it erodes trust.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Why Agentic Workflows Raise the Stakes</h2>
+
+        <p>As AI moves from insight to action, the consequence of poor data quality shifts dramatically. What once meant a missed opportunity or an inconvenient workaround now becomes a scaled operational risk. When AI is making recommendations, a bad data point leads to a bad suggestion that a human can catch. When AI is executing autonomously, that same bad data point leads to a bad action—repeated across hundreds or thousands of transactions before anyone notices.</p>
+
+        <div class="stakes-visual">
+            <div class="stakes-stage">
+                <div class="stakes-label">Insight Phase</div>
+                <div class="stakes-title">Missed Opportunities</div>
+                <div class="stakes-desc">Poor data leads to incomplete recommendations that humans can review and override</div>
+            </div>
+            <div class="stakes-stage">
+                <div class="stakes-label">Decision Phase</div>
+                <div class="stakes-title">Eroded Confidence</div>
+                <div class="stakes-desc">Inconsistent outputs reduce team willingness to rely on AI, stalling adoption</div>
+            </div>
+            <div class="stakes-stage">
+                <div class="stakes-label">Agentic Phase</div>
+                <div class="stakes-title">Scaled Operational Risk</div>
+                <div class="stakes-desc">Autonomous actions amplify errors at enterprise speed with limited human review</div>
+            </div>
+        </div>
+
+        <p>At this stage, trust determines whether leaders can confidently automate decisions, delegate control, and operate at enterprise scale. Sustaining that trust requires disciplined knowledge enrichment: clear ownership, active governance, and continuous validation of the information AI depends on.</p>
+
+        <div class="tip-box">
+            <p><strong>Key insight:</strong> The best time to build data discipline is before you need it for agentic workflows. The organizations that invest in these habits early will be the ones ready to scale when the technology matures. Those that wait will find themselves rebuilding foundations under pressure.</p>
+        </div>
+
+        <div class="takeaways-box">
+            <h2>Chapter 8 Takeaway</h2>
+            <p>Data quality is one of the few levers every organization can fully control. When treated as a leadership discipline rather than a technical chore, it enables steady progress across the AI Journey—supporting reliable assistants, meaningful insights, and ultimately, scalable agentic workflows that deliver real business outcomes.</p>
+            <p>In the next chapter, we will explore how to measure AI progress and demonstrate ROI—giving your leadership team the evidence it needs to sustain momentum and justify continued investment.</p>
+            <!-- ============================================================
+                 SWAP: DOWNLOAD LINKS
+                 Replace both href values below with the correct PDF URLs
+                 ============================================================ -->
+            <div class="takeaway-download">
+                <a href="#" target="_blank" class="takeaway-download-btn" style="text-decoration: none;">
+                    ⬇️ Download This Chapter
+                </a>
+                <a href="#" target="_blank" class="takeaway-download-btn" style="text-decoration: none;">
+                    ⬇️ Download Full Playbook
+                </a>
+                <span class="takeaway-download-text">Share with your team</span>
+                <span class="download-instructions">(Right-click on button and select "Save Link As..." to download)</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================================
+         SWAP: SIDEBAR RESOURCES
+         Replace or add resource-item blocks below
+         ============================================================ -->
+    <aside class="resource-sidebar">
+        <div class="sidebar-header">Resources</div>
+
+        <div class="resource-section">
+            <div class="resource-section-title">Data Quality</div>
+            <a href="#" target="_blank" class="resource-item">
+                <span class="resource-item-tag guide">Guide</span>
+                <div class="resource-item-title">Building a Data Quality Framework for AI</div>
+                <div class="resource-item-desc">Practical steps for establishing data ownership, naming conventions, and review cadences that scale with your AI journey.</div>
+                <span class="resource-item-learn-more">Learn more →</span>
+            </a>
+            <a href="#" target="_blank" class="resource-item">
+                <span class="resource-item-tag insights">Insights</span>
+                <div class="resource-item-title">Why Data Quality Is a Leadership Issue</div>
+                <div class="resource-item-desc">How top-performing broadband providers treat data governance as a strategic priority rather than an IT task.</div>
+                <span class="resource-item-learn-more">Learn more →</span>
+            </a>
+        </div>
+
+        <div class="resource-section">
+            <div class="resource-section-title">Knowledge Management</div>
+            <a href="#" target="_blank" class="resource-item">
+                <span class="resource-item-tag article">Article</span>
+                <div class="resource-item-title">Knowledge Enrichment Best Practices</div>
+                <div class="resource-item-desc">How continuous knowledge curation creates compounding returns for AI assistant accuracy and subscriber satisfaction.</div>
+                <span class="resource-item-learn-more">Learn more →</span>
+            </a>
+            <a href="#" target="_blank" class="resource-item">
+                <span class="resource-item-tag course">Course</span>
+                <div class="resource-item-title">Calix Education: Data-Driven AI Adoption</div>
+                <div class="resource-item-desc">Self-paced modules covering data readiness assessment, enrichment workflows, and quality monitoring for BSPs.</div>
+                <span class="resource-item-learn-more">Learn more →</span>
+            </a>
+        </div>
+
+        <div class="resource-section">
+            <div class="resource-section-title">Trust &amp; Governance</div>
+            <a href="#" target="_blank" class="resource-item">
+                <span class="resource-item-tag research">Research</span>
+                <div class="resource-item-title">The Trust Factor in AI Adoption</div>
+                <div class="resource-item-desc">Research findings on how data quality directly influences employee and subscriber trust in AI-powered services.</div>
+                <span class="resource-item-learn-more">Learn more →</span>
+            </a>
+            <a href="#" target="_blank" class="resource-item">
+                <span class="resource-item-tag guide">Guide</span>
+                <div class="resource-item-title">Preparing for Agentic AI Workflows</div>
+                <div class="resource-item-desc">A readiness checklist for the data foundations, governance structures, and escalation paths that agentic AI requires.</div>
+                <span class="resource-item-learn-more">Learn more →</span>
+            </a>
+        </div>
+    </aside>
+    </div>
+</body>
+</html>
